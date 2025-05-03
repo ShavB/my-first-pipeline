@@ -3,19 +3,19 @@ pipeline{
 
   stages {
     stage("front-end"){
-      step{
+      steps {
         sh "echo << 'Hello front-end 1'"
       }
-      step{
+      steps {
         sh "echo << 'Hello front-end 2'"
       }
     }
 
     stage("backend-end"){
-      step {
+      steps {
         sh "echp << 'Hello!! this is backend 1'"
       }
-      step {
+      steps {
         sh "echo << 'Hello!!! this is backend 2'"
       }
     }
