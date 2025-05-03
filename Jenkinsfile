@@ -1,12 +1,22 @@
 pipeline{
-  agent{
-    docker { image 'node:20-alpine' }
-  }
+  agent any
 
-  stages{
-    stage('Test'){
-      steps{
-        sh 'node --version'
+  stages {
+    stage("front-end"){
+      step{
+        sh "echo << 'Hello front-end 1'"
+      }
+      step{
+        sh "echo << 'Hello front-end 2'"
+      }
+    }
+
+    stage("backend-end"){
+      step {
+        sh "echp << 'Hello!! this is backend 1'"
+      }
+      step {
+        sh "echo << 'Hello!!! this is backend 2'"
       }
     }
   }
