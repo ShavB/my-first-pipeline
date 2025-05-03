@@ -1,18 +1,21 @@
 pipeline{
-  agent any
-
+  agent none
   stages {
-    stage("front-end"){
+    stage("front-end") {
+      agent {
+        docker { image 'maven:3.8.1-adpotopenjdk-1' }
+      }
       steps {
-        sh "echo << 'Hello front-end 1'"
-        sh "echo << 'Hello front-end 2'"
+        sh "mvn --version"
       }
     }
 
-    stage("backend-end"){
+    stage("backend-end") {
+      agent {
+        docker { image 'node:16-alpine' }
+      }
       steps {
-        sh "echp << 'Hello!! this is backend 1'"
-        sh "echo << 'Hello!!! this is backend 2'"
+        sh 'node --version'
       }
     }
   }
